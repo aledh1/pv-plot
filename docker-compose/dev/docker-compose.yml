@@ -29,7 +29,7 @@ services:
   #   networks:
   #     - internal
 
-  oeweb_api:
+  oeweb_api_dev:
     image: aledpv/oeweb-api:latest
     container_name: oeweb_api_dev
     hostname: oeweb_api_dev
@@ -42,7 +42,7 @@ services:
     networks:
       - internal
 
-  oeweb_rs:
+  oeweb_rs_dev:
     image: aledpv/oeweb-rs:latest
     container_name: oeweb_rs_dev
     hostname: oeweb_rs_dev
@@ -58,7 +58,7 @@ services:
     volumes:
       - 'C:\temp\DreamReg:C:\config'
 
-  plot_rs:
+  plot_rs_dev:
   #  build:
   #    context: ./plot_rs/
     image: aledpv/plot-rs:latest
