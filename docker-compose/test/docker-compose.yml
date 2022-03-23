@@ -30,7 +30,7 @@ services:
   #     - internal
 
   oeweb_api_test:
-    image: aledpv/oeweb-api:latest
+    image: oeweb-api:latestTest
     container_name: oeweb_api_test
     hostname: oeweb_api_test
     dns:
@@ -43,7 +43,7 @@ services:
       - internal
 
   oeweb_rs_test:
-    image: aledpv/oeweb-rs:latest
+    image: oeweb-rs:latestTest
     container_name: oeweb_rs_test
     hostname: oeweb_rs_test
     dns:
@@ -61,7 +61,7 @@ services:
   plot_rs_test:
   #  build:
   #    context: ./plot_rs/
-    image: aledpv/plot-rs:latest
+    image: plot-rs:latestTest
     container_name: plot_rs_test
     hostname: plot_rs_test
     dns:
