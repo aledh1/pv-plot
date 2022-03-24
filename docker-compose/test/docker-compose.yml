@@ -30,7 +30,7 @@ services:
   #     - internal
 
   oeweb_api_test:
-    image: localhost:5000/oeweb-api:latestTest
+    image: localhost:2375/oeweb-api:latestTest
     container_name: oeweb_api_test
     hostname: oeweb_api_test
     dns:
@@ -43,7 +43,7 @@ services:
       - internal
 
   oeweb_rs_test:
-    image: localhost:5000/oeweb-rs:latestTest
+    image: localhost:2375/oeweb-rs:latestTest
     container_name: oeweb_rs_test
     hostname: oeweb_rs_test
     dns:
@@ -61,7 +61,7 @@ services:
   plot_rs_test:
   #  build:
   #    context: ./plot_rs/
-    image: localhost:5000/plot-rs:latestTest
+    image: localhost:2375/plot-rs:latestTest
     container_name: plot_rs_test
     hostname: plot_rs_test
     dns:
