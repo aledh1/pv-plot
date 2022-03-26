@@ -38,7 +38,7 @@ services:
     dns_search:
       - "pottsmullarkey.com"
     ports:
-      - "9000:80"
+      - "9001:80"
     networks:
       - internal
 
@@ -51,16 +51,19 @@ services:
     dns_search:
        - "pottsmullarkey.com"   
     ports:
-      - "9082:9082"
-      - "9083:9083" 
+      - "9084:9084"
+      - "9085:9085" 
     networks:
       - internal
     volumes:
       - 'C:\temp\DreamReg:C:\config'
+      - 'C:\users\aledh\.aws:C:\users\administrator\.aws'
+    environment:
+      - AWS_DEFAULT_REGION=eu-west-2
+      - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/test
+      - PLOT_CONFIG_TARGET=C:\\Program Files\ (x86)\\OE Accounts\ Remoting\\OERemotingService.exe.config
 
   plot_rs_test:
-  #  build:
-  #    context: ./plot_rs/
     image: aledpv/plot-rs:latestTest
     container_name: plot_rs_test
     hostname: plot_rs_test
@@ -69,29 +72,65 @@ services:
     dns_search:
        - "pottsmullarkey.com"    
     ports:
-      - "8082:8082"
-      - "8083:8083" 
-      - "8084:8084"
+      - "8085:8085"
+      - "8086:8086" 
+      - "8087:8087"
     networks:
       - internal
     volumes:
       - 'C:\temp\DreamReg:C:\config'
+      - 'C:\users\aledh\.aws:C:\users\containeradministrator\.aws'
+    environment:
+      - AWS_DEFAULT_REGION=eu-west-2
+      - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/test
+      - PLOT_CONFIG_TARGET=C:\\Program Files\ (x86)\\Plot Control\ Remoting Server\\SiConRemotingService.exe.config
+
+  plot_rs_test_uploader:
+    image: aledpv/plot-rs:latestTest
+    container_name: plot_rs_test_uploader
+    hostname: plot_rs_test_uploader
+    dns:
+       - "172.30.1.20"
+    dns_search:
+       - "pottsmullarkey.com"    
+    ports:
+      - "8185:8185"
+      - "8186:8186" 
+      - "8187:8187"
+    networks:
+      - internal
+    volumes:
+      - 'C:\temp\DreamReg:C:\config'
+      - 'C:\users\aledh\.aws:C:\users\containeradministrator\.aws'
+    environment:
+      - AWS_DEFAULT_REGION=eu-west-2
+      - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/test/uploader
+      - PLOT_CONFIG_TARGET=C:\\Program Files\ (x86)\\Plot Control\ Remoting Server\\SiConRemotingService.exe.config
+
+  plot_rs_test_scheduler:
+    image: aledpv/plot-rs:latestTest
+    container_name: plot_rs_test_scheduler
+    hostname: plot_rs_test_scheduler
+    dns:
+       - "172.30.1.20"
+    dns_search:
+       - "pottsmullarkey.com"    
+    ports:
+      - "8285:8285"
+      - "8286:8286" 
+      - "8287:8287"
+    networks:
+      - internal
+    volumes:
+      - 'C:\temp\DreamReg:C:\config'
+      - 'C:\users\aledh\.aws:C:\users\containeradministrator\.aws'
+    environment:
+      - AWS_DEFAULT_REGION=eu-west-2
+      - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/test/scheduler
+      - PLOT_CONFIG_TARGET=C:\\Program Files\ (x86)\\Plot Control\ Remoting Server\\SiConRemotingService.exe.config
 
 networks:
   external:
     name: external
   internal:
     name: internal
-
-x-aws-vpc: "vpc-0f896c0859cbf92d3"
-
-x-aws-cloudformation:
-  Resources:
-    OeaccountserviceTaskDefinition:
-      Properties:
-        RuntimePlatform:
-          OperatingSystemFamily: WINDOWS_SERVER_2022_CORE
-    OewebservicesTaskDefinition:
-      Properties:
-        RuntimePlatform:
-          OperatingSystemFamily: WINDOWS_SERVER_2022_CORE
