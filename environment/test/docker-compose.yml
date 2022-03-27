@@ -51,8 +51,8 @@ services:
     dns_search:
        - "pottsmullarkey.com"   
     ports:
-      - "9084:9084"
-      - "9085:9085" 
+      - "9082:9084"
+      - "9083:9085" 
     networks:
       - internal
     volumes:
@@ -72,9 +72,9 @@ services:
     dns_search:
        - "pottsmullarkey.com"    
     ports:
-      - "8085:8085"
-      - "8086:8086" 
-      - "8087:8087"
+      - "8085:8082"
+      - "8086:8083" 
+      - "8087:8084"
     networks:
       - internal
     volumes:
@@ -94,9 +94,9 @@ services:
     dns_search:
        - "pottsmullarkey.com"    
     ports:
-      - "8185:8185"
-      - "8186:8186" 
-      - "8187:8187"
+      - "8185:8082"
+      - "8186:8083" 
+      - "8187:8084"
     networks:
       - internal
     volumes:
@@ -116,9 +116,9 @@ services:
     dns_search:
        - "pottsmullarkey.com"    
     ports:
-      - "8285:8285"
-      - "8286:8286" 
-      - "8287:8287"
+      - "8285:8082"
+      - "8286:8083" 
+      - "8287:8084"
     networks:
       - internal
     volumes:
