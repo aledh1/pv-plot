@@ -34,7 +34,7 @@ services:
     environment:
       - AWS_DEFAULT_REGION=eu-west-2
       - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/dev
-      - PLOT_CONFIG_TARGET=C:\\Program Files\ (x86)\\OE Accounts\ Remoting\\OERemotingService.exe.config
+      - 'PLOT_CONFIG_TARGET=C:\Program Files (x86)\OE Accounts Remoting\OERemotingService.exe.config'
 
   plot_rs_dev:
     image: aledpv/plot-rs:latestDev
@@ -56,7 +56,7 @@ services:
     environment:
       - AWS_DEFAULT_REGION=eu-west-2
       - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/dev
-      - PLOT_CONFIG_TARGET=C:\\Program Files\ (x86)\\Plot Control\ Remoting Server\\SiConRemotingService.exe.config
+      - 'PLOT_CONFIG_TARGET=C:\Program Files (x86)\Plot Control Remoting Server\SiConRemotingService.exe.config'
 
   plot_rs_dev_uploader:
     image: aledpv/plot-rs:latestDev
@@ -78,7 +78,7 @@ services:
     environment:
       - AWS_DEFAULT_REGION=eu-west-2
       - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/dev/uploader
-      - PLOT_CONFIG_TARGET=C:\\Program Files\ (x86)\\Plot Control\ Remoting Server\\SiConRemotingService.exe.config
+      - 'PLOT_CONFIG_TARGET=C:\Program Files (x86)\Plot Control Remoting Server\SiConRemotingService.exe.config'
 
   plot_rs_dev_scheduler:
     image: aledpv/plot-rs:latestDev
@@ -100,7 +100,7 @@ services:
     environment:
       - AWS_DEFAULT_REGION=eu-west-2
       - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/dev/scheduler
-      - PLOT_CONFIG_TARGET=C:\\Program Files\ (x86)\\Plot Control\ Remoting Server\\SiConRemotingService.exe.config
+      - 'PLOT_CONFIG_TARGET=C:\Program Files (x86)\Plot Control Remoting Server\SiConRemotingService.exe.config'
 
 networks:
   external:
