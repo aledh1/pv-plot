@@ -30,7 +30,7 @@ services:
       - internal
     volumes:
       - 'C:\temp\DreamReg:C:\config'
-      - 'C:\users\aledh\.aws:C:\users\administrator\.aws'
+      - 'C:\users\aledh\.aws:C:\users\containeradministrator\.aws'
     environment:
       - AWS_DEFAULT_REGION=eu-west-2
       - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/dev
