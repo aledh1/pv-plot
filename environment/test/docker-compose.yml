@@ -64,7 +64,7 @@ services:
       - 'PLOT_CONFIG_TARGET=C:\Program Files (x86)\OE Accounts Remoting\OERemotingService.exe.config'
 
   plot_rs_test:
-    image: aledpv/plot-rs:latestTest
+    image: aledpv/plot-rs:${VERSION}
     container_name: plot_rs_test_${VERSION}
     hostname: plot_rs_test_${VERSION}
     dns:
@@ -86,7 +86,7 @@ services:
       - 'PLOT_CONFIG_TARGET=C:\Program Files (x86)\Plot Control Remoting Server\SiConRemotingService.exe.config'
 
   plot_rs_test_uploader:
-    image: aledpv/plot-rs:latestTest
+    image: aledpv/plot-rs:${VERSION}
     container_name: plot_rs_test_uploader_${VERSION}
     hostname: plot_rs_test_uploader_${VERSION}
     dns:
@@ -108,7 +108,7 @@ services:
       - 'PLOT_CONFIG_TARGET=C:\Program Files (x86)\Plot Control Remoting Server\SiConRemotingService.exe.config'
 
   plot_rs_test_scheduler:
-    image: aledpv/plot-rs:latestTest
+    image: aledpv/plot-rs:${VERSION}
     container_name: plot_rs_test_scheduler_${VERSION}
     hostname: plot_rs_test_scheduler_${VERSION}
     dns:
