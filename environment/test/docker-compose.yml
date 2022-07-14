@@ -30,9 +30,9 @@ services:
   #     - internal
 
   oeweb_api_test:
-    image: aledpv/oeweb-api:latestTest
-    container_name: oeweb_api_test
-    hostname: oeweb_api_test
+    image: aledpv/oeweb-api:${VERSION}
+    container_name: oeweb_api_test_${VERSION}
+    hostname: oeweb_api_test_${VERSION}
     dns:
       - "172.30.1.20"
     dns_search:
@@ -43,9 +43,9 @@ services:
       - internal
 
   oeweb_rs_test:
-    image: aledpv/oeweb-rs:latestTest
-    container_name: oeweb_rs_test
-    hostname: oeweb_rs_test
+    image: aledpv/oeweb-rs:${VERSION}
+    container_name: oeweb_rs_test_${VERSION}
+    hostname: oeweb_rs_test_${VERSION}
     dns:
        - "172.30.1.20"
     dns_search:
@@ -65,8 +65,8 @@ services:
 
   plot_rs_test:
     image: aledpv/plot-rs:latestTest
-    container_name: plot_rs_test
-    hostname: plot_rs_test
+    container_name: plot_rs_test_${VERSION}
+    hostname: plot_rs_test_${VERSION}
     dns:
        - "172.30.1.20"
     dns_search:
@@ -87,8 +87,8 @@ services:
 
   plot_rs_test_uploader:
     image: aledpv/plot-rs:latestTest
-    container_name: plot_rs_test_uploader
-    hostname: plot_rs_test_uploader
+    container_name: plot_rs_test_uploader_${VERSION}
+    hostname: plot_rs_test_uploader_${VERSION}
     dns:
        - "172.30.1.20"
     dns_search:
@@ -109,8 +109,8 @@ services:
 
   plot_rs_test_scheduler:
     image: aledpv/plot-rs:latestTest
-    container_name: plot_rs_test_scheduler
-    hostname: plot_rs_test_scheduler
+    container_name: plot_rs_test_scheduler_${VERSION}
+    hostname: plot_rs_test_scheduler_${VERSION}
     dns:
        - "172.30.1.20"
     dns_search:
