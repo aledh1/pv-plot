@@ -3,7 +3,7 @@ version: '3.8'
 services:
 
   oeweb_api_dev:
-    image: aledpv/oeweb-api:latestDev
+    image: aledpv/oeweb-api:${VERSION}
     container_name: oeweb_api_dev
     hostname: oeweb_api_dev
     dns:
@@ -16,7 +16,7 @@ services:
       - internal
 
   oeweb_rs_dev:
-    image: aledpv/oeweb-rs:latestDev
+    image: aledpv/oeweb-rs:${VERSION}
     container_name: oeweb_rs_dev
     hostname: oeweb_rs_dev
     dns:
@@ -37,7 +37,7 @@ services:
       - 'PLOT_CONFIG_TARGET=C:\Program Files (x86)\OE Accounts Remoting\OERemotingService.exe.config'
 
   plot_rs_dev:
-    image: aledpv/plot-rs:latestDev
+    image: aledpv/plot-rs:${VERSION}
     container_name: plot_rs_dev
     hostname: plot_rs_dev
     dns:
@@ -59,7 +59,7 @@ services:
       - 'PLOT_CONFIG_TARGET=C:\Program Files (x86)\Plot Control Remoting Server\SiConRemotingService.exe.config'
 
   plot_rs_dev_uploader:
-    image: aledpv/plot-rs:latestDev
+    image: aledpv/plot-rs:${VERSION}
     container_name: plot_rs_dev_uploader
     hostname: plot_rs_dev_uploader
     dns:
@@ -81,7 +81,7 @@ services:
       - 'PLOT_CONFIG_TARGET=C:\Program Files (x86)\Plot Control Remoting Server\SiConRemotingService.exe.config'
 
   plot_rs_dev_scheduler:
-    image: aledpv/plot-rs:latestDev
+    image: aledpv/plot-rs:${VERSION}
     container_name: plot_rs_dev_scheduler
     hostname: plot_rs_dev_scheduler
     dns:
