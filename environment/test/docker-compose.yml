@@ -51,8 +51,8 @@ services:
     dns_search:
        - "pottsmullarkey.com"   
     ports:
-      - "9082:9084"
-      - "9083:9085" 
+      - "9084:9082"
+      - "9085:9083" 
     networks:
       - internal
     volumes:
