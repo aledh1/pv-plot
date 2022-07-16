@@ -30,9 +30,9 @@ services:
   #     - internal
 
   oeweb_api_test:
-    image: aledpv/oeweb-api:${VERSION}
-    container_name: oeweb_api_test_${VERSION}
-    hostname: oeweb_api_test_${VERSION}
+    image: aledpv/oeweb-api:4.0.73.14
+    container_name: oeweb_api_test_4.0.73.14
+    hostname: oeweb_api_test_4.0.73.14
     dns:
       - "172.30.1.20"
     dns_search:
@@ -43,9 +43,9 @@ services:
       - internal
 
   oeweb_rs_test:
-    image: aledpv/oeweb-rs:${VERSION}
-    container_name: oeweb_rs_test_${VERSION}
-    hostname: oeweb_rs_test_${VERSION}
+    image: aledpv/oeweb-rs:4.0.73.14
+    container_name: oeweb_rs_test_4.0.73.14
+    hostname: oeweb_rs_test_4.0.73.14
     dns:
        - "172.30.1.20"
     dns_search:
@@ -64,9 +64,9 @@ services:
       - 'PLOT_CONFIG_TARGET=C:\Program Files (x86)\OE Accounts Remoting\OERemotingService.exe.config'
 
   plot_rs_test:
-    image: aledpv/plot-rs:${VERSION}
-    container_name: plot_rs_test_${VERSION}
-    hostname: plot_rs_test_${VERSION}
+    image: aledpv/plot-rs:4.0.73.14
+    container_name: plot_rs_test_4.0.73.14
+    hostname: plot_rs_test_4.0.73.14
     dns:
        - "172.30.1.20"
     dns_search:
@@ -86,9 +86,9 @@ services:
       - 'PLOT_CONFIG_TARGET=C:\Program Files (x86)\Plot Control Remoting Server\SiConRemotingService.exe.config'
 
   plot_rs_test_uploader:
-    image: aledpv/plot-rs:${VERSION}
-    container_name: plot_rs_test_uploader_${VERSION}
-    hostname: plot_rs_test_uploader_${VERSION}
+    image: aledpv/plot-rs:4.0.73.14
+    container_name: plot_rs_test_uploader_4.0.73.14
+    hostname: plot_rs_test_uploader_4.0.73.14
     dns:
        - "172.30.1.20"
     dns_search:
@@ -108,9 +108,9 @@ services:
       - 'PLOT_CONFIG_TARGET=C:\Program Files (x86)\Plot Control Remoting Server\SiConRemotingService.exe.config'
 
   plot_rs_test_scheduler:
-    image: aledpv/plot-rs:${VERSION}
-    container_name: plot_rs_test_scheduler_${VERSION}
-    hostname: plot_rs_test_scheduler_${VERSION}
+    image: aledpv/plot-rs:4.0.73.14
+    container_name: plot_rs_test_scheduler_4.0.73.14
+    hostname: plot_rs_test_scheduler_4.0.73.14
     dns:
        - "172.30.1.20"
     dns_search:
