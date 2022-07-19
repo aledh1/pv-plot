@@ -2,6 +2,45 @@ version: '3.8'
 
 services:
 
+  plotenterprise_api_dev:
+    image: aledpv/plotenterprise-api:${VERSION}
+    container_name: plotenterprise_api_dev_${VERSION}
+    hostname: plotenterprise_api_dev_${VERSION}
+    dns:
+      - "172.30.1.20"
+    dns_search:
+      - "pottsmullarkey.com"
+    ports:
+      - "9003:80"
+    networks:
+      - internal
+
+  plotsoap_api_dev:
+    image: aledpv/plotsoap-api:${VERSION}
+    container_name: plotsoap_api_dev_${VERSION}
+    hostname: plotsoap_api_dev_${VERSION}
+    dns:
+      - "172.30.1.20"
+    dns_search:
+      - "pottsmullarkey.com"
+    ports:
+      - "9002:80"
+    networks:
+      - internal
+
+  prospects_api_dev:
+    image: aledpv/prospects-api:${VERSION}
+    container_name: prospects_api_dev_${VERSION}
+    hostname: prospects_api_dev_${VERSION}
+    dns:
+      - "172.30.1.20"
+    dns_search:
+      - "pottsmullarkey.com"
+    ports:
+      - "9001:80"
+    networks:
+      - internal
+
   oeweb_api_dev:
     image: aledpv/oeweb-api:${VERSION}
     container_name: oeweb_api_dev_${VERSION}
@@ -14,6 +53,26 @@ services:
       - "9000:80"
     networks:
       - internal
+
+  prospectsweb_rs_dev:
+    image: aledpv/prospectsweb-rs:${VERSION}
+    container_name: prospectsweb_rs_dev_${VERSION}
+    hostname: prospectsweb_rs_dev_${VERSION}
+    dns:
+       - "172.30.1.20"
+    dns_search:
+       - "pottsmullarkey.com"   
+    ports:
+      - "9020:9020"
+    networks:
+      - internal
+    volumes:
+      - 'C:\temp\DreamReg:C:\config'
+      - 'C:\users\aledh\.aws:C:\users\containeradministrator\.aws'
+    environment:
+      - AWS_DEFAULT_REGION=eu-west-2
+      - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/dev
+      - 'PLOT_CONFIG_TARGET=C:\Program Files (x86)\ProspectsWebRemotingService\ProspectsWebService.exe.config'
 
   oeweb_rs_dev:
     image: aledpv/oeweb-rs:${VERSION}
