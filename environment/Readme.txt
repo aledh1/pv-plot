@@ -1,5 +1,6 @@
 Command to download files from S3:
 
+DON'T DO THIS THOUGH!
 aws s3 sync s3://pv-plot-configuration .
 
 

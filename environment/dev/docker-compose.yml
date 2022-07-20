@@ -14,6 +14,10 @@ services:
       - "9003:80"
     networks:
       - internal
+    environment:
+      - AWS_DEFAULT_REGION=eu-west-2
+      - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/dev/plotenterprise-api
+      - 'PLOT_CONFIG_TARGET=C:\inetpub\wwwroot\web.config'
 
   plotsoap_api_dev:
     image: aledpv/plotsoap-api:${VERSION}
@@ -27,6 +31,10 @@ services:
       - "9002:80"
     networks:
       - internal
+    environment:
+      - AWS_DEFAULT_REGION=eu-west-2
+      - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/dev/plotsoap-api
+      - 'PLOT_CONFIG_TARGET=C:\inetpub\wwwroot\web.config'
 
   prospects_api_dev:
     image: aledpv/prospects-api:${VERSION}
@@ -40,6 +48,10 @@ services:
       - "9001:80"
     networks:
       - internal
+    environment:
+      - AWS_DEFAULT_REGION=eu-west-2
+      - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/dev/prospects-api
+      - 'PLOT_CONFIG_TARGET=C:\inetpub\wwwroot\web.config'
 
   oeweb_api_dev:
     image: aledpv/oeweb-api:${VERSION}
@@ -53,6 +65,10 @@ services:
       - "9000:80"
     networks:
       - internal
+    environment:
+      - AWS_DEFAULT_REGION=eu-west-2
+      - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/dev/oeweb-api
+      - 'PLOT_CONFIG_TARGET=C:\inetpub\wwwroot\web.config'
 
   prospectsweb_rs_dev:
     image: aledpv/prospectsweb-rs:${VERSION}
