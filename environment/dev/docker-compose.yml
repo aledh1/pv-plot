@@ -56,7 +56,7 @@ services:
       - 'C:\users\aledh\.aws:C:\users\containeradministrator\.aws'
     environment:
       - AWS_DEFAULT_REGION=eu-west-2
-      - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/dev/prospects-api
+      - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/environment/dev/prospects-api
       - 'PLOT_CONFIG_TARGET=C:\inetpub\wwwroot\web.config'
 
   oeweb_api_dev:
