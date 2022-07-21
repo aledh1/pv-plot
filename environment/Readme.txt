@@ -6,7 +6,7 @@ aws s3 sync s3://pv-plot-configuration .
 
 Command to push changes back into S3 bucket:
 
-aws s3 cp --recursive . s3://pv-plot-configuration/
+aws s3 cp --recursive . s3://pv-plot-configuration/ --exclude '.git/*'
 
 
 This assumes the pv-plot IAM user is configured on the machine.

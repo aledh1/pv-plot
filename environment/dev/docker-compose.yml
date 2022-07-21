@@ -18,7 +18,7 @@ services:
       - 'C:\users\aledh\.aws:C:\users\containeradministrator\.aws'
     environment:
       - AWS_DEFAULT_REGION=eu-west-2
-      - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/dev/plotenterprise-api
+      - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/environment/dev/plotenterprise-api
       - 'PLOT_CONFIG_TARGET=C:\inetpub\wwwroot\web.config'
 
   plotsoap_api_dev:
@@ -37,7 +37,7 @@ services:
       - 'C:\users\aledh\.aws:C:\users\containeradministrator\.aws'
     environment:
       - AWS_DEFAULT_REGION=eu-west-2
-      - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/dev/plotsoap-api
+      - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/environment/dev/plotsoap-api
       - 'PLOT_CONFIG_TARGET=C:\inetpub\wwwroot\web.config'
 
   prospects_api_dev:
@@ -75,7 +75,7 @@ services:
       - 'C:\users\aledh\.aws:C:\users\containeradministrator\.aws'
     environment:
       - AWS_DEFAULT_REGION=eu-west-2
-      - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/dev/oeweb-api
+      - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/environment/dev/oeweb-api
       - 'PLOT_CONFIG_TARGET=C:\inetpub\wwwroot\web.config'
 
   prospectsweb_rs_dev:
@@ -95,7 +95,7 @@ services:
       - 'C:\users\aledh\.aws:C:\users\containeradministrator\.aws'
     environment:
       - AWS_DEFAULT_REGION=eu-west-2
-      - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/dev
+      - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/environment/dev
       - 'PLOT_CONFIG_TARGET=C:\Program Files (x86)\ProspectsWebRemotingService\ProspectsWebService.exe.config'
 
   oeweb_rs_dev:
@@ -116,7 +116,7 @@ services:
       - 'C:\users\aledh\.aws:C:\users\containeradministrator\.aws'
     environment:
       - AWS_DEFAULT_REGION=eu-west-2
-      - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/dev
+      - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/environment/dev
       - 'PLOT_CONFIG_TARGET=C:\Program Files (x86)\OE Accounts Remoting\OERemotingService.exe.config'
 
   plot_rs_dev:
@@ -138,7 +138,7 @@ services:
       - 'C:\users\aledh\.aws:C:\users\containeradministrator\.aws'
     environment:
       - AWS_DEFAULT_REGION=eu-west-2
-      - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/dev
+      - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/environment/dev
       - 'PLOT_CONFIG_TARGET=C:\Program Files (x86)\Plot Control Remoting Server\SiConRemotingService.exe.config'
 
   plot_rs_dev_uploader:
@@ -160,7 +160,7 @@ services:
       - 'C:\users\aledh\.aws:C:\users\containeradministrator\.aws'
     environment:
       - AWS_DEFAULT_REGION=eu-west-2
-      - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/dev/uploader
+      - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/environment/dev/uploader
       - 'PLOT_CONFIG_TARGET=C:\Program Files (x86)\Plot Control Remoting Server\SiConRemotingService.exe.config'
 
   plot_rs_dev_scheduler:
@@ -182,7 +182,7 @@ services:
       - 'C:\users\aledh\.aws:C:\users\containeradministrator\.aws'
     environment:
       - AWS_DEFAULT_REGION=eu-west-2
-      - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/dev/scheduler
+      - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/environment/dev/scheduler
       - 'PLOT_CONFIG_TARGET=C:\Program Files (x86)\Plot Control Remoting Server\SiConRemotingService.exe.config'
 
 networks:
