@@ -2,125 +2,143 @@ version: '3.8'
 
 services:
 
-  # plotenterprise_api_dev:
-  #   image: aledpv/plotenterprise-api:${VERSION}
-  #   container_name: plotenterprise_api_dev_${VERSION}
-  #   hostname: plotenterprise_api_dev_${VERSION}
-  #   dns:
-  #     - "172.30.1.20"
-  #   dns_search:
-  #     - "pottsmullarkey.com"
-  #   ports:
-  #     - "9003:80"
-  #   networks:
-  #     - internal
-  #   volumes:
-  #     - 'C:\users\aledh\.aws:C:\users\containeradministrator\.aws'
-  #   environment:
-  #     - AWS_DEFAULT_REGION=eu-west-2
-  #     - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/environment/dev/plotenterprise-api
-  #     - 'PLOT_CONFIG_TARGET=C:\inetpub\wwwroot\web.config'
-
-  # plotsoap_api_dev:
-  #   image: aledpv/plotsoap-api:${VERSION}
-  #   container_name: plotsoap_api_dev_${VERSION}
-  #   hostname: plotsoap_api_dev_${VERSION}
-  #   dns:
-  #     - "172.30.1.20"
-  #   dns_search:
-  #     - "pottsmullarkey.com"
-  #   ports:
-  #     - "9002:80"
-  #   networks:
-  #     - internal
-  #   volumes:
-  #     - 'C:\users\aledh\.aws:C:\users\containeradministrator\.aws'
-  #   environment:
-  #     - AWS_DEFAULT_REGION=eu-west-2
-  #     - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/environment/dev/plotsoap-api
-  #     - 'PLOT_CONFIG_TARGET=C:\inetpub\wwwroot\web.config'
-
-  # prospects_api_dev:
-  #   image: aledpv/prospects-api:${VERSION}
-  #   container_name: prospects_api_dev_${VERSION}
-  #   hostname: prospects_api_dev_${VERSION}
-  #   dns:
-  #     - "172.30.1.20"
-  #   dns_search:
-  #     - "pottsmullarkey.com"
-  #   ports:
-  #     - "9001:80"
-  #   networks:
-  #     - internal
-  #   volumes:
-  #     - 'C:\users\aledh\.aws:C:\users\containeradministrator\.aws'
-  #   environment:
-  #     - AWS_DEFAULT_REGION=eu-west-2
-  #     - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/environment/dev/prospects-api
-  #     - 'PLOT_CONFIG_TARGET=C:\inetpub\wwwroot\web.config'
-
-  # oeweb_api_dev:
-  #   image: aledpv/oeweb-api:${VERSION}
-  #   container_name: oeweb_api_dev_${VERSION}
-  #   hostname: oeweb_api_dev_${VERSION}
-  #   dns:
-  #     - "172.30.1.20"
-  #   dns_search:
-  #     - "pottsmullarkey.com"
-  #   ports:
-  #     - "9000:80"
-  #   networks:
-  #     - internal
-  #   volumes:
-  #     - 'C:\users\aledh\.aws:C:\users\containeradministrator\.aws'
-  #   environment:
-  #     - AWS_DEFAULT_REGION=eu-west-2
-  #     - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/environment/dev/oeweb-api
-  #     - 'PLOT_CONFIG_TARGET=C:\inetpub\wwwroot\web.config'
-
-  # prospectsweb_rs_dev:
-  #   image: aledpv/prospectsweb-rs:${VERSION}
-  #   container_name: prospectsweb_rs_dev_${VERSION}
-  #   hostname: prospectsweb_rs_dev_${VERSION}
-  #   dns:
-  #      - "172.30.1.20"
-  #   dns_search:
-  #      - "pottsmullarkey.com"   
-  #   ports:
-  #     - "9020:9020"
-  #   networks:
-  #     - internal
-  #   volumes:
-  #     - 'C:\temp\DreamReg:C:\config'
-  #     - 'C:\users\aledh\.aws:C:\users\containeradministrator\.aws'
-  #   environment:
-  #     - AWS_DEFAULT_REGION=eu-west-2
-  #     - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/environment/dev
-  #     - 'PLOT_CONFIG_TARGET=C:\Program Files (x86)\ProspectsWebRemotingService\ProspectsWebService.exe.config'
-
-  # oeweb_rs_dev:
-  #   image: aledpv/oeweb-rs:${VERSION}
-  #   container_name: oeweb_rs_dev_${VERSION}
-  #   hostname: oeweb_rs_dev_${VERSION}
-  #   dns:
-  #      - "172.30.1.20"
-  #   dns_search:
-  #      - "pottsmullarkey.com"   
-  #   ports:
-  #     - "9082:9082"
-  #     - "9083:9083" 
-  #   networks:
-  #     - internal
-  #   volumes:
-  #     - 'C:\temp\DreamReg:C:\config'
-  #     - 'C:\users\aledh\.aws:C:\users\containeradministrator\.aws'
-  #   environment:
-  #     - AWS_DEFAULT_REGION=eu-west-2
-  #     - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/environment/dev
-  #     - 'PLOT_CONFIG_TARGET=C:\Program Files (x86)\OE Accounts Remoting\OERemotingService.exe.config'
-
+  plotenterprise_api_dev:
+    image: aledpv/plotenterprise-api:${VERSION}
+    container_name: plotenterprise_api_dev_${VERSION}
+    hostname: plotenterprise_api_dev_${VERSION}
+    dns:
+      - "172.30.1.20"
+    dns_search:
+      - "pottsmullarkey.com"
+    ports:
+      - "9003:80"
+    networks:
+      - internal
+    volumes:
+      - 'C:\users\aledh\.aws:C:\users\containeradministrator\.aws'
+    environment:
+      - AWS_DEFAULT_REGION=eu-west-2
+      - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/environment/dev/plotenterprise-api
+      - 'PLOT_CONFIG_TARGET=C:\inetpub\wwwroot\web.config'
+    depends_on:
+      init_db_migration:
+        condition: service_completed_successfully
+        
+  plotsoap_api_dev:
+    image: aledpv/plotsoap-api:${VERSION}
+    container_name: plotsoap_api_dev_${VERSION}
+    hostname: plotsoap_api_dev_${VERSION}
+    dns:
+      - "172.30.1.20"
+    dns_search:
+      - "pottsmullarkey.com"
+    ports:
+      - "9002:80"
+    networks:
+      - internal
+    volumes:
+      - 'C:\users\aledh\.aws:C:\users\containeradministrator\.aws'
+    environment:
+      - AWS_DEFAULT_REGION=eu-west-2
+      - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/environment/dev/plotsoap-api
+      - 'PLOT_CONFIG_TARGET=C:\inetpub\wwwroot\web.config'
+    depends_on:
+      init_db_migration:
+        condition: service_completed_successfully
+        
+  prospects_api_dev:
+    image: aledpv/prospects-api:${VERSION}
+    container_name: prospects_api_dev_${VERSION}
+    hostname: prospects_api_dev_${VERSION}
+    dns:
+      - "172.30.1.20"
+    dns_search:
+      - "pottsmullarkey.com"
+    ports:
+      - "9001:80"
+    networks:
+      - internal
+    volumes:
+      - 'C:\users\aledh\.aws:C:\users\containeradministrator\.aws'
+    environment:
+      - AWS_DEFAULT_REGION=eu-west-2
+      - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/environment/dev/prospects-api
+      - 'PLOT_CONFIG_TARGET=C:\inetpub\wwwroot\web.config'
+    depends_on:
+      init_db_migration:
+        condition: service_completed_successfully
+        
+  oeweb_api_dev:
+    image: aledpv/oeweb-api:${VERSION}
+    container_name: oeweb_api_dev_${VERSION}
+    hostname: oeweb_api_dev_${VERSION}
+    dns:
+      - "172.30.1.20"
+    dns_search:
+      - "pottsmullarkey.com"
+    ports:
+      - "9000:80"
+    networks:
+      - internal
+    volumes:
+      - 'C:\users\aledh\.aws:C:\users\containeradministrator\.aws'
+    environment:
+      - AWS_DEFAULT_REGION=eu-west-2
+      - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/environment/dev/oeweb-api
+      - 'PLOT_CONFIG_TARGET=C:\inetpub\wwwroot\web.config'
+    depends_on:
+      init_db_migration:
+        condition: service_completed_successfully
+        
+  prospectsweb_rs_dev:
+    image: aledpv/prospectsweb-rs:${VERSION}
+    container_name: prospectsweb_rs_dev_${VERSION}
+    hostname: prospectsweb_rs_dev_${VERSION}
+    dns:
+       - "172.30.1.20"
+    dns_search:
+       - "pottsmullarkey.com"   
+    ports:
+      - "9020:9020"
+    networks:
+      - internal
+    volumes:
+      - 'C:\temp\DreamReg:C:\config'
+      - 'C:\users\aledh\.aws:C:\users\containeradministrator\.aws'
+    environment:
+      - AWS_DEFAULT_REGION=eu-west-2
+      - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/environment/dev
+      - 'PLOT_CONFIG_TARGET=C:\Program Files (x86)\ProspectsWebRemotingService\ProspectsWebService.exe.config'
+    depends_on:
+      init_db_migration:
+        condition: service_completed_successfully
+        
+  oeweb_rs_dev:
+    image: aledpv/oeweb-rs:${VERSION}
+    container_name: oeweb_rs_dev_${VERSION}
+    hostname: oeweb_rs_dev_${VERSION}
+    dns:
+       - "172.30.1.20"
+    dns_search:
+       - "pottsmullarkey.com"   
+    ports:
+      - "9082:9082"
+      - "9083:9083" 
+    networks:
+      - internal
+    volumes:
+      - 'C:\temp\DreamReg:C:\config'
+      - 'C:\users\aledh\.aws:C:\users\containeradministrator\.aws'
+    environment:
+      - AWS_DEFAULT_REGION=eu-west-2
+      - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/environment/dev
+      - 'PLOT_CONFIG_TARGET=C:\Program Files (x86)\OE Accounts Remoting\OERemotingService.exe.config'
+    depends_on:
+      init_db_migration:
+        condition: service_completed_successfully
+        
   plot_rs_dev:
-    image: plot-rs:${VERSION}
+    image: aledpv/plot-rs:${VERSION}
     container_name: plot_rs_dev_${VERSION}
     hostname: plot_rs_dev_${VERSION}
     dns:
@@ -142,52 +160,57 @@ services:
       - 'PLOT_CONFIG_TARGET=C:\Program Files (x86)\Plot Control Remoting Server\SiConRemotingService.exe.config'
     depends_on:
       init_db_migration:
-        condition: service_completed_sucessfully
+        condition: service_completed_successfully
 
+  plot_rs_dev_uploader:
+    image: aledpv/plot-rs:${VERSION}
+    container_name: plot_rs_dev_uploader_${VERSION}
+    hostname: plot_rs_dev_uploader_${VERSION}
+    dns:
+       - "172.30.1.20"
+    dns_search:
+       - "pottsmullarkey.com"    
+    ports:
+      - "8182:8082"
+      - "8183:8083" 
+      - "8184:8084"
+    networks:
+      - internal
+    volumes:
+      - 'C:\temp\DreamReg:C:\config'
+      - 'C:\users\aledh\.aws:C:\users\containeradministrator\.aws'
+    environment:
+      - AWS_DEFAULT_REGION=eu-west-2
+      - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/environment/dev/uploader
+      - 'PLOT_CONFIG_TARGET=C:\Program Files (x86)\Plot Control Remoting Server\SiConRemotingService.exe.config'
+    depends_on:
+      init_db_migration:
+        condition: service_completed_successfully
 
-  # plot_rs_dev_uploader:
-  #   image: plot-rs:${VERSION}
-  #   container_name: plot_rs_dev_uploader_${VERSION}
-  #   hostname: plot_rs_dev_uploader_${VERSION}
-  #   dns:
-  #      - "172.30.1.20"
-  #   dns_search:
-  #      - "pottsmullarkey.com"    
-  #   ports:
-  #     - "8182:8082"
-  #     - "8183:8083" 
-  #     - "8184:8084"
-  #   networks:
-  #     - internal
-  #   volumes:
-  #     - 'C:\temp\DreamReg:C:\config'
-  #     - 'C:\users\aledh\.aws:C:\users\containeradministrator\.aws'
-  #   environment:
-  #     - AWS_DEFAULT_REGION=eu-west-2
-  #     - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/environment/dev/uploader
-  #     - 'PLOT_CONFIG_TARGET=C:\Program Files (x86)\Plot Control Remoting Server\SiConRemotingService.exe.config'
-
-  # plot_rs_dev_scheduler:
-  #   image: plot-rs:${VERSION}
-  #   container_name: plot_rs_dev_scheduler_${VERSION}
-  #   hostname: plot_rs_dev_scheduler_${VERSION}
-  #   dns:
-  #      - "172.30.1.20"
-  #   dns_search:
-  #      - "pottsmullarkey.com"    
-  #   ports:
-  #     - "8282:8082"
-  #     - "8283:8083" 
-  #     - "8284:8084"
-  #   networks:
-  #     - internal
-  #   volumes:
-  #     - 'C:\temp\DreamReg:C:\config'
-  #     - 'C:\users\aledh\.aws:C:\users\containeradministrator\.aws'
-  #   environment:
-  #     - AWS_DEFAULT_REGION=eu-west-2
-  #     - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/environment/dev/scheduler
-  #     - 'PLOT_CONFIG_TARGET=C:\Program Files (x86)\Plot Control Remoting Server\SiConRemotingService.exe.config'
+  plot_rs_dev_scheduler:
+    image: aledpv/plot-rs:${VERSION}
+    container_name: plot_rs_dev_scheduler_${VERSION}
+    hostname: plot_rs_dev_scheduler_${VERSION}
+    dns:
+       - "172.30.1.20"
+    dns_search:
+       - "pottsmullarkey.com"    
+    ports:
+      - "8282:8082"
+      - "8283:8083" 
+      - "8284:8084"
+    networks:
+      - internal
+    volumes:
+      - 'C:\temp\DreamReg:C:\config'
+      - 'C:\users\aledh\.aws:C:\users\containeradministrator\.aws'
+    environment:
+      - AWS_DEFAULT_REGION=eu-west-2
+      - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/environment/dev/scheduler
+      - 'PLOT_CONFIG_TARGET=C:\Program Files (x86)\Plot Control Remoting Server\SiConRemotingService.exe.config'
+    depends_on:
+      init_db_migration:
+        condition: service_completed_successfully
 
   init_db_migration:
     image: dbmigrator
