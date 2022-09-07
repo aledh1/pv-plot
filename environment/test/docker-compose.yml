@@ -20,6 +20,9 @@ services:
       - AWS_DEFAULT_REGION=eu-west-2
       - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/environment/test/plotenterprise-api
       - 'PLOT_CONFIG_TARGET=C:\inetpub\wwwroot\web.config'
+    depends_on:
+      init_db_migration:
+        condition: service_completed_successfully
 
   plotsoap_api_test:
     image: aledpv/plotsoap-api:${VERSION}
@@ -39,6 +42,9 @@ services:
       - AWS_DEFAULT_REGION=eu-west-2
       - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/environment/test/plotsoap-api
       - 'PLOT_CONFIG_TARGET=C:\inetpub\wwwroot\web.config'
+    depends_on:
+      init_db_migration:
+        condition: service_completed_successfully
 
 
   prospects_api_test:
@@ -59,6 +65,9 @@ services:
       - AWS_DEFAULT_REGION=eu-west-2
       - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/environment/test/prospects-api
       - 'PLOT_CONFIG_TARGET=C:\inetpub\wwwroot\web.config'
+    depends_on:
+      init_db_migration:
+        condition: service_completed_successfully
 
 
   oeweb_api_test:
@@ -79,6 +88,9 @@ services:
       - AWS_DEFAULT_REGION=eu-west-2
       - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/environment/test/oeweb-api
       - 'PLOT_CONFIG_TARGET=C:\inetpub\wwwroot\web.config'
+    depends_on:
+      init_db_migration:
+        condition: service_completed_successfully
 
 
   prospectsweb_rs_test:
@@ -101,6 +113,9 @@ services:
       - AWS_DEFAULT_REGION=eu-west-2
       - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/environment/test
       - 'PLOT_CONFIG_TARGET=C:\Program Files (x86)\ProspectsWebRemotingService\ProspectsWebService.exe.config'
+    depends_on:
+      init_db_migration:
+        condition: service_completed_successfully
 
   oeweb_rs_test:
     image: aledpv/oeweb-rs:${VERSION}
@@ -122,6 +137,9 @@ services:
       - AWS_DEFAULT_REGION=eu-west-2
       - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/environment/test
       - 'PLOT_CONFIG_TARGET=C:\Program Files (x86)\OE Accounts Remoting\OERemotingService.exe.config'
+    depends_on:
+      init_db_migration:
+        condition: service_completed_successfully
 
   plot_rs_test:
     image: aledpv/plot-rs:${VERSION}
@@ -144,6 +162,9 @@ services:
       - AWS_DEFAULT_REGION=eu-west-2
       - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/environment/test
       - 'PLOT_CONFIG_TARGET=C:\Program Files (x86)\Plot Control Remoting Server\SiConRemotingService.exe.config'
+    depends_on:
+      init_db_migration:
+        condition: service_completed_successfully
 
   plot_rs_test_uploader:
     image: aledpv/plot-rs:${VERSION}
@@ -166,6 +187,9 @@ services:
       - AWS_DEFAULT_REGION=eu-west-2
       - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/environment/test/uploader
       - 'PLOT_CONFIG_TARGET=C:\Program Files (x86)\Plot Control Remoting Server\SiConRemotingService.exe.config'
+    depends_on:
+      init_db_migration:
+        condition: service_completed_successfully
 
   plot_rs_test_scheduler:
     image: aledpv/plot-rs:${VERSION}
@@ -188,6 +212,22 @@ services:
       - AWS_DEFAULT_REGION=eu-west-2
       - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/environment/test/scheduler
       - 'PLOT_CONFIG_TARGET=C:\Program Files (x86)\Plot Control Remoting Server\SiConRemotingService.exe.config'
+    depends_on:
+      init_db_migration:
+        condition: service_completed_successfully
+
+  init_db_migration:
+    image: aledpv/dbmigrator
+    dns:
+       - "172.30.1.20"
+    dns_search:
+       - "pottsmullarkey.com"
+    networks:
+      - internal
+    environment:
+      - TARGET_VERSION=${VERSION}
+      - GIT_URL=${GIT_URL}
+      - GIT_PAT=${GIT_PAT}
 
 networks:
   external:
