@@ -228,6 +228,7 @@ services:
       - TARGET_VERSION=${VERSION}
       - GIT_URL=${GIT_URL}
       - GIT_PAT=${GIT_PAT}
+      - CONNECTION_STRING=${CONNECTION_STRING}
 
 networks:
   external:

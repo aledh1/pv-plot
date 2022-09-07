@@ -217,13 +217,14 @@ services:
     dns:
        - "172.30.1.20"
     dns_search:
-       - "pottsmullarkey.com"    
+       - "pottsmullarkey.com"
     networks:
       - internal
     environment:
       - TARGET_VERSION=${VERSION}
       - GIT_URL=${GIT_URL}
       - GIT_PAT=${GIT_PAT}
+      - CONNECTION_STRING=${CONNECTION_STRING}
       
 networks:
   external:
