@@ -225,7 +225,11 @@ services:
       - GIT_URL=${GIT_URL}
       - GIT_PAT=${GIT_PAT}
       - CONNECTION_STRING=${CONNECTION_STRING}
-      
+      - AWS_DEFAULT_REGION=eu-west-2
+      - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/environment/dev
+      - PLOT_CONFIG_TARGET=C:\config\SiConRemotingService.exe.config
+      - XML_CONFIG_PATH=C:\config\SiConRemotingService.exe.config
+      - XML_CONFIG_CONNECTION_STRING_XPATH=//configuration/appSettings/add[@key='Eagle.SiConCurrentDev_ConnectionStringSiCon'],
 networks:
   external:
     name: external
