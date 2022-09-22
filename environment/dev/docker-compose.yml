@@ -220,6 +220,8 @@ services:
        - "pottsmullarkey.com"
     networks:
       - internal
+    volumes:
+      - 'C:\users\aledh\.aws:C:\users\containeradministrator\.aws'
     environment:
       - TARGET_VERSION=${VERSION}
       - GIT_URL=${GIT_URL}
