@@ -228,8 +228,8 @@ services:
       - TARGET_VERSION=${VERSION}
       - GIT_URL=${GIT_URL}
       - GIT_PAT=${GIT_PAT}
-      - CONNECTION_STRING=${CONNECTION_STRING}
-      - AWS_CONFIG_SOURCE=s3://=pv-plot-configuration/environment/test
+      - #CONNECTION_STRING=${CONNECTION_STRING}
+      - AWS_CONFIG_SOURCE=s3://pv-plot-configuration/environment/test
       - AWS_CONFIG_TARGET=C:\app\SiConRemotingService.exe.config
       - XML_CONFIG_PATH=C:\app\SiConRemotingService.exe.config
       - XML_CONFIG_CONNECTION_STRING_XPATH=//configuration/appSettings/add[@key='Ekto.Plot_CurrentTest_ConnectionStringSiCon']
