@@ -225,7 +225,7 @@ services:
     networks:
       - internal
     volumes:
-      - 'C:\users\aledh\.aws:C:\users\containeradministrator\.aws'
+      - 'C:\users\aledh\.aws:C:\users\containeruser\.aws'
     environment:
       - TARGET_VERSION=${VERSION}
       - GIT_URL=${GIT_URL}
