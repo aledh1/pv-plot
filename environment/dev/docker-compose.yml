@@ -231,6 +231,7 @@ services:
       - XML_CONFIG_PATH=C:\app\SiConRemotingService.exe.config
       - XML_CONFIG_CONNECTION_STRING_XPATH=//configuration/appSettings/add[@key='Eagle.SiConCurrentDev_ConnectionStringSiCon']
       - XML_CONFIG_CONNECTION_STRING_ATTR_KEY=value
+      - POST_UPGRADE_STORED_PROC=
 networks:
   external:
     name: external

@@ -235,6 +235,7 @@ services:
       - XML_CONFIG_PATH=C:\app\SiConRemotingService.exe.config
       - XML_CONFIG_CONNECTION_STRING_XPATH=//configuration/appSettings/add[@key='Ekto.Plot_CurrentTest_ConnectionStringSiCon']
       - XML_CONFIG_CONNECTION_STRING_ATTR_KEY=value
+      - POST_UPGRADE_STORED_PROC=
 
 networks:
   external:
