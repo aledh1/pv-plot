@@ -233,7 +233,7 @@ services:
       - XML_CONFIG_CONNECTION_STRING_ATTR_KEY=value
       
 networks:
-  external:
+  externaldev:
     name: externaldev
-  internal:
+  internaldev:
     name: internaldev
