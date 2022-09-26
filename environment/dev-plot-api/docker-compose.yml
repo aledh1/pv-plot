@@ -18,30 +18,30 @@ services:
       - 'C:\users\aledh\.aws:C:\users\containeradministrator\.aws'
     environment:
       - ASPNETCORE_ENVIRONMENT=development
-  #   depends_on:
-  #     init_db_migration:
-  #       condition: service_completed_successfully
+    depends_on:
+      init_db_migration:
+        condition: service_completed_successfully
 
-  # init_db_migration:
-  #   image: aledpv/dbmigrator
-  #   dns:
-  #      - "172.30.1.20"
-  #   dns_search:
-  #      - "pottsmullarkey.com"
-  #   networks:
-  #     - internal
-  #   volumes:
-  #     - 'C:\users\aledh\.aws:C:\users\containeruser\.aws'
-  #   environment:
-  #     - TARGET_VERSION=${VERSION}
-  #     - GIT_URL=${GIT_URL}
-  #     - GIT_PAT=${GIT_PAT}
-  #     - AWS_CONFIG_SOURCE=s3://pv-plot-configuration/environment/dev
-  #     - AWS_CONFIG_TARGET=C:\app\dbmigrator.connection.config
-  #     - XML_CONFIG_PATH=C:\app\dbmigrator.connection.config
-  #     - XML_CONFIG_CONNECTION_STRING_XPATH=//configuration/appSettings/add[@key='Ekto.Plot_CurrentTest_ConnectionStringSiCon']
-  #     - XML_CONFIG_CONNECTION_STRING_ATTR_KEY=value
-  #     - CONTROL_NAME=PlotAPI
+  init_db_migration:
+    image: aledpv/dbmigrator
+    dns:
+       - "172.30.1.20"
+    dns_search:
+       - "pottsmullarkey.com"
+    networks:
+      - internal
+    volumes:
+      - 'C:\users\aledh\.aws:C:\users\containeruser\.aws'
+    environment:
+      - TARGET_VERSION=${VERSION}
+      - GIT_URL=${GIT_URL}
+      - GIT_PAT=${GIT_PAT}
+      - AWS_CONFIG_SOURCE=s3://pv-plot-configuration/environment/dev
+      - AWS_CONFIG_TARGET=C:\app\dbmigrator.connection.config
+      - XML_CONFIG_PATH=C:\app\dbmigrator.connection.config
+      - XML_CONFIG_CONNECTION_STRING_XPATH=//configuration/appSettings/add[@key='Ekto.Plot_CurrentTest_ConnectionStringSiCon']
+      - XML_CONFIG_CONNECTION_STRING_ATTR_KEY=value
+      - CONTROL_NAME=PlotAPI
 
 networks:
   external:
