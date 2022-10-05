@@ -132,7 +132,7 @@ services:
     environment:
       - AWS_DEFAULT_REGION=eu-west-2
       - PLOT_CONFIG_SOURCE=s3://pv-plot-configuration/environment/dev
-      - 'PLOT_CONFIG_TARGET=C:\Program Files (x86)\OE Accounts Remoting\OERemotingService.exe.config'
+      - 'PLOT_CONFIG_TARGET=C:\Program Files (x86)\OE Accounts Remoting Server\OERemotingService.exe.config'
     depends_on:
       init_db_migration:
         condition: service_completed_successfully
