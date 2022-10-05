@@ -46,7 +46,6 @@ services:
       init_db_migration:
         condition: service_completed_successfully
 
-
   prospects_api_test:
     image: aledpv/prospects-api:${VERSION}
     container_name: prospects_api_test_${VERSION}
@@ -69,7 +68,6 @@ services:
       init_db_migration:
         condition: service_completed_successfully
 
-
   oeweb_api_test:
     image: aledpv/oeweb-api:${VERSION}
     container_name: oeweb_api_test_${VERSION}
@@ -91,7 +89,6 @@ services:
     depends_on:
       init_db_migration:
         condition: service_completed_successfully
-
 
   prospectsweb_rs_test:
     image: aledpv/prospectsweb-rs:${VERSION}
