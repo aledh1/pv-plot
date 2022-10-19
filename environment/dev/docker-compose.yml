@@ -226,6 +226,7 @@ services:
       - TARGET_VERSION=${VERSION}
       - GIT_URL=${GIT_URL}
       - GIT_PAT=${GIT_PAT}
+      - GIT_SCRIPTS_DIR=${GIT_SCRIPTS_DIR}
       - AWS_CONFIG_SOURCE=s3://pv-plot-configuration/environment/dev
       - AWS_CONFIG_TARGET=C:\app\dbmigrator.connection.config
       - XML_CONFIG_PATH=C:\app\dbmigrator.connection.config
