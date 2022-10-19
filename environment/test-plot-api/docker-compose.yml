@@ -34,9 +34,9 @@ services:
       - 'C:\users\aledh\.aws:C:\users\containeruser\.aws'
     environment:
       - TARGET_VERSION=${VERSION}
-      - GIT_URL=${GIT_URL}
-      - GIT_PAT=${GIT_PAT}
-      - GIT_SCRIPTS_DIR=${GIT_SCRIPTS_DIR}
+      - REPO_URL=${REPO_URL}
+      - REPO_PAT=${REPO_PAT}
+      - REPO_SCRIPTS_DIR=${REPO_SCRIPTS_DIR}
       - AWS_CONFIG_SOURCE=s3://pv-plot-configuration/environment/test
       - AWS_CONFIG_TARGET=C:\app\dbmigrator.connection.config
       - XML_CONFIG_PATH=C:\app\dbmigrator.connection.config
